@@ -1,23 +1,16 @@
 def binary_search(list, item):
-  # в low и high хранятся границы части списка, где выполняется поиск
   low = 0
   high = len(list) - 1
   i = 0
-  # Пока не останется один элемент
   while low <= high:
-    # Проверяем средний элемент
     mid = (low + high) // 2
-        # Значение найдено
     if list[mid] < item and list[mid +1] >= item:
       return mid
-    # Значение велико
     if list[mid] > item:
       high = mid - 1
-    # Значение мало
     else:
       low = mid + 1
     i=i+1
-    # Значение не найдено
     return None
 seq = input('Введите последовательность чисел через пробел:')
 number = int(input('Введите любое число:'))
