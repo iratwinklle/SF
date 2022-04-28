@@ -32,17 +32,17 @@ def seq_check_clear(string):
 
 seq = input('Введите последовательность чисел через пробел:')
 number = input('Введите любое число:')
-seq_clear = seq_check_clear(seq)
+seq_check = seq_check_clear(seq)
 number_check = seq_check_clear(number)
-if seq_clear and number_check:
-    sorted_seq = bubble_sort(seq_clear)
+if seq_check and number_check:
+    sorted_seq = bubble_sort(seq_check)
     print('Список введенных чисел по возрастанию: {}'.format(sorted_seq))
-    index = binary_search(sorted_seq, number_check)
+    number_int = int(number)
+    index = binary_search(sorted_seq, number_int)
     if index:
-        print('Номер позиции элемента, который меньше введенного пользователем числа, '
-              'а следующий за ним больше или равен этому числу: {}'.format(index))
+        print('Индекс элемента, который меньше введенного числа: {}'.format(index))
     else:
-        print('Введенное число находится за пределами последовательности')
+        print('Введенное число находится за пределами последовательности, предоставить индекс не представляется возможным')
 else:
     print("Введенные данные не соответствуют требуемым условиям")
 
