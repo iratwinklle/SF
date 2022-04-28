@@ -1,20 +1,20 @@
-def binary_search(list, item):
-  low = 0
-  high = len(list) - 1
-  i = 0
-  if list[high] < item:
-      return False
-  if list[low] >= item:
-      return False
-  while low <= high:
-    mid = (low + high) // 2
-    if list[mid] < item and list[mid +1] >= item:
-      return mid
-    if list[mid] > item:
-      high = mid - 1
-    else:
-      low = mid + 1
-    i=i+1
+def binary_search(list, int):
+    low = 0
+    high = len(list) - 1
+    i = 0
+    if list[high] < int:
+        return False
+    if list[low] >= int:
+        return False
+    while low <= high:
+        mid = (low + high) // 2
+        if list[mid] < int and list[mid + 1] >= int:
+            return mid
+        if list[mid] > int:
+            high = mid - 1
+        else:
+            low = mid + 1
+            i = i + 1
     return None
 def bubble_sort(list):
     for i in range(len(list)):
