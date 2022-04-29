@@ -1,20 +1,21 @@
 def binary_search(list, int):
     low = 0
     high = len(list) - 1
-    i = 0
     if list[high] < int:
         return False
     if list[low] >= int:
         return False
     while low <= high:
         mid = (low + high) // 2
+        # print(mid, list[mid])
         if list[mid] < int and list[mid + 1] >= int:
             return mid
+        if list[mid] == int:
+            return mid - 1
         if list[mid] > int:
             high = mid - 1
         else:
             low = mid + 1
-            i = i + 1
     return None
 def bubble_sort(list):
     for i in range(len(list)):
@@ -25,7 +26,7 @@ def bubble_sort(list):
 def seq_check_clear(string):
     seq_list = string.split(' ')
     try:
-        int_list = list(map(int,seq_list))
+        int_list = list(map(int, seq_list))
         return int_list
     except:
         return False
