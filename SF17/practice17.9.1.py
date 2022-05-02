@@ -2,21 +2,19 @@ def binary_search(list, int):
     low = 0
     high = len(list) - 1
     if list[high] < int:
-        return False
+        return -1
     if list[low] >= int:
-        return False
+        return -2
     while low <= high:
         mid = (low + high) // 2
-        # print(mid, list[mid])
         if list[mid] < int and list[mid + 1] >= int:
             return mid
-        if list[mid] == int:
-            return mid - 1
-        if list[mid] > int:
+        if list[mid] >= int:
             high = mid - 1
         else:
             low = mid + 1
-    return None
+    return -3
+
 def bubble_sort(list):
     for i in range(len(list)):
         for j in range(len(list) - i - 1):
@@ -40,10 +38,9 @@ if seq_check and number_check:
     print('Список введенных чисел по возрастанию: {}'.format(sorted_seq))
     number_int = int(number)
     index = binary_search(sorted_seq, number_int)
-    if index:
+    if index >= 0:
         print('Индекс элемента, который меньше введенного числа: {}'.format(index))
     else:
-        print('Введенное число находится за пределами последовательности, предоставить индекс не представляется возможным')
+        print('Предоставить индекс числа, которое меньше введенного невозможно, т.к. введенное число за пределами последовательности')
 else:
     print("Введенные данные не соответствуют требуемым условиям")
-
